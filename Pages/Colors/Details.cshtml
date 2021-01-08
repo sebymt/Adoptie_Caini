@@ -1,0 +1,23 @@
+﻿@page
+@model Adoptie_Caini.Pages.Colors.DetailsModel
+
+@{
+    ViewData["Title"] = "Detalii Culoare";
+}
+
+<div>
+    <h4>Detalii Culoare</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Color.ColorName)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Color.ColorName)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-page="./Edit" asp-route-id="@Model.Color.ID"><img src="https://www.flaticon.com/svg/static/icons/svg/327/327643.svg" alt="Edit" width="20" /></a>&nbsp; | &nbsp;
+    <a asp-page="./Index"><img src="https://www.flaticon.com/svg/static/icons/svg/122/122637.svg" width="20" alt="Back" />&nbsp; Înapoi</a>
+</div>

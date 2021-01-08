@@ -1,0 +1,78 @@
+﻿@page
+@model Adoptie_Caini.Pages.Dogs.IndexModel
+
+@{
+    ViewData["Title"] = "Caini";
+}
+
+<h1>Câini</h1>
+
+<br />
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                #
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Dog[0].Breed.BreedName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Dog[0].Country)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Dog[0].Weight)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Dog[0].DateOfBirth)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Dog[0].DogColors)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.DogD.Dogs)
+        {
+            string selectedRow = "";
+            if (item.ID == Model.DogID)
+            {
+                selectedRow = "table-success";
+            }
+        <tr class="@selectedRow">
+            <td>
+                <img src="@Html.DisplayFor(modelItem => item.Image)" alt="caine" width="50" />
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Breed.BreedName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Country)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Weight)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DateOfBirth)
+            </td>
+            <td>
+                @{
+                    foreach (var color in item.DogColors)
+                    {
+                        @color.Color.ColorName <br />
+                    }
+                }
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.ID"><img src="https://www.flaticon.com/svg/static/icons/svg/327/327643.svg" alt="Edit" width="20" /></a> &nbsp; | &nbsp;
+                <a asp-page="./Details" asp-route-id="@item.ID"><img src="https://www.flaticon.com/svg/static/icons/svg/565/565654.svg" alt="View" width="20" /></a> &nbsp; | &nbsp;
+                <a asp-page="./Delete" asp-route-id="@item.ID"><img src="https://www.flaticon.com/svg/static/icons/svg/3964/3964085.svg" alt="Delete" width="20" /></a>
+            </td>
+        </tr>
+        }
+    </tbody>
+</table>
+
+<a asp-page="Create"><img src="https://static.thenounproject.com/png/1053562-200.png" alt="New" width="25" />&nbsp; Câine Nou</a>
+

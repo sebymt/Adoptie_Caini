@@ -1,0 +1,36 @@
+﻿@page
+@model Adoptie_Caini.Pages.Colors.IndexModel
+
+@{
+    ViewData["Title"] = "Culori";
+}
+
+<h1>Culori</h1>
+
+<p>
+    <a asp-page="Create"><img src="https://www.flaticon.com/svg/static/icons/svg/1828/1828817.svg" width="20" alt="Create New" />&nbsp; Nou</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Color[0].ColorName)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Color) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ColorName)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.ID"><img src="https://www.flaticon.com/svg/static/icons/svg/327/327643.svg" alt="Edit" width="20" /></a> &nbsp; | &nbsp;
+                <a asp-page="./Details" asp-route-id="@item.ID"><img src="https://www.flaticon.com/svg/static/icons/svg/565/565654.svg" alt="View" width="20" /></a> &nbsp; | &nbsp;
+                <a asp-page="./Delete" asp-route-id="@item.ID"><img src="https://www.flaticon.com/svg/static/icons/svg/3964/3964085.svg" alt="Delete" width="20" /></a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

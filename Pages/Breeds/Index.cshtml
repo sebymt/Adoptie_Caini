@@ -1,0 +1,36 @@
+﻿@page
+@model Adoptie_Caini.Pages.Breeds.IndexModel
+
+@{
+    ViewData["Title"] = "Rase";
+}
+
+<h1>Rase</h1>
+
+<p>
+    <a asp-page="Create"><img src="https://www.flaticon.com/svg/static/icons/svg/1828/1828817.svg" width="20" alt="Create New" />&nbsp; Nou</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Breed[0].BreedName)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Breed) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.BreedName)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.ID"><img src="https://www.flaticon.com/svg/static/icons/svg/327/327643.svg" alt="Edit" width="20" /></a> &nbsp; | &nbsp;
+                <a asp-page="./Details" asp-route-id="@item.ID"><img src="https://www.flaticon.com/svg/static/icons/svg/565/565654.svg" alt="View" width="20" /></a> &nbsp; | &nbsp;
+                <a asp-page="./Delete" asp-route-id="@item.ID"><img src="https://www.flaticon.com/svg/static/icons/svg/3964/3964085.svg" alt="Delete" width="20" /></a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

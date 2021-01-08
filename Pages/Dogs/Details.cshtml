@@ -1,0 +1,41 @@
+﻿@page
+@model Adoptie_Caini.Pages.Dogs.DetailsModel
+
+@{
+    ViewData["Title"] = "Detalii Caine";
+}
+
+<div>
+    <h4>Detalii Câine</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Dog.Image)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Dog.Image)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Dog.Country)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Dog.Country)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Dog.Weight)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Dog.Weight)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Dog.DateOfBirth)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Dog.DateOfBirth)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-page="./Edit" asp-route-id="@Model.Dog.ID"><img src="https://www.flaticon.com/svg/static/icons/svg/327/327643.svg" alt="Edit" width="20" /></a>&nbsp; | &nbsp;
+    <a asp-page="./Index"><img src="https://www.flaticon.com/svg/static/icons/svg/122/122637.svg" width="20" alt="Back" />&nbsp; Înapoi</a>
+</div>

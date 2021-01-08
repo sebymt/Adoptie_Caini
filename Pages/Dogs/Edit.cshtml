@@ -1,0 +1,77 @@
+﻿@page
+@model Adoptie_Caini.Pages.Dogs.EditModel
+
+@{
+    ViewData["Title"] = "Editare Caine";
+}
+
+
+<h4>Editare Câine</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Dog.ID" />
+            <div class="form-group">
+                <label asp-for="Dog.Image" class="control-label"></label>
+                <input asp-for="Dog.Image" class="form-control" />
+                <span asp-validation-for="Dog.Image" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Dog.Country" class="control-label"></label>
+                <input asp-for="Dog.Country" class="form-control" />
+                <span asp-validation-for="Dog.Country" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Dog.Weight" class="control-label"></label>
+                <input asp-for="Dog.Weight" class="form-control" />
+                <span asp-validation-for="Dog.Weight" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Dog.DateOfBirth" class="control-label"></label>
+                <input asp-for="Dog.DateOfBirth" class="form-control" />
+                <span asp-validation-for="Dog.DateOfBirth" class="textdanger"></span>
+            </div>
+            <label asp-for="Dog.BreedID" class="control-label">Rasa</label>
+            <select asp-for="Dog.BreedID" class="form-control" asp-items="ViewBag.BreedID"></select>
+            <span asp-validation-for="Dog.BreedID" class="text-danger"></span>
+            <div class="form-group">
+                <div class="table">
+                    <table>
+                        <tr>
+                            @{
+                                int cnt = 0;
+                                foreach (var col in Model.AssignedColorDataList)
+                                {
+                                    if (cnt++ % 3 == 0)
+                                    {
+                                    @:</tr><tr>
+                                    }
+                                    @:<td>
+                                        <input type="checkbox"
+                                               name="selectedColors"
+                                               value="@col.ColorID"
+                                               @(Html.Raw(col.Assigned ? "checked=\"checked\"" : "")) />
+                                        @col.ColorID @: @col.Name
+                                    @:</td>
+                                }
+                            @:</tr>
+                            }
+                        </table>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Salvează" class="btn btn-primary" />
+                </div>
+            </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="./Index"><img src="https://www.flaticon.com/svg/static/icons/svg/122/122637.svg" width="20" alt="Back" />&nbsp; Înapoi</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

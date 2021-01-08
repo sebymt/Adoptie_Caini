@@ -1,0 +1,33 @@
+﻿@page
+@model Adoptie_Caini.Pages.Colors.CreateModel
+
+@{
+    ViewData["Title"] = "Creare Culoare";
+}
+
+
+<h4>Creare culoare</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Color.ColorName" class="control-label"></label>
+                <input asp-for="Color.ColorName" class="form-control" />
+                <span asp-validation-for="Color.ColorName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Creează" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="Index"><img src="https://www.flaticon.com/svg/static/icons/svg/122/122637.svg" width="20" alt="Back" />&nbsp; Înapoi</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

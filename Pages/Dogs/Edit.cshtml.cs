@@ -67,7 +67,7 @@ namespace Adoptie_Caini.Pages.Dogs
                 return NotFound();
             }
 
-            if (await TryUpdateModelAsync<Dog>(dogToUpdate, "Dog", i => i.Image, i => i.Country, i => i.Weight, i => i.DateOfBirth, i => i.Breed))
+            if (await TryUpdateModelAsync<Dog>(dogToUpdate, "Dog", i => i.Image, i => i.Country, i => i.Weight, i => i.DateOfBirth, i => i.BreedID))
             {
                 UpdateDogColors(_context, selectedColors, dogToUpdate);
                 await _context.SaveChangesAsync();

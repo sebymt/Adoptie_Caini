@@ -14,7 +14,7 @@ namespace Adoptie_Caini.Models
         public void PopulateAssignedColorData(Adoptie_CainiContext context, Dog dog)
         {
             var allColors = context.Color;
-            var dogColors = new HashSet<int>(dog.DogColors.Select(c => c.DogID));
+            var dogColors = new HashSet<int>(dog.DogColors.Select(c => c.ColorID));
             AssignedColorDataList = new List<AssignedColorData>();
             foreach (var col in allColors)
             {
